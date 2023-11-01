@@ -1,12 +1,18 @@
 import Header from './Header';
 import Footer from './Footer';
+import Card from './Card';
 
 function App() {
 
   return (
     <>
       <Header />
-      <main></main>
+      <main>
+        <input type='text' placeholder='Search' />
+        <div className="cards">
+          <Card />
+        </div>
+      </main>
       <Footer />
     </>
   )

@@ -31,12 +31,103 @@ a:hover {
 
 body {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: #333;
 }
 
 main {
   min-height: calc(100vh - 150px);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: tan;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  position: relative;
+  width: 300px;
+  padding: 8px;
+  margin: 50px 20px;
+}
+
+.card img {
+  width: 100%;
+  border: 0.5px solid white;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin: 10px auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: -25px;
+  right: 1px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  border-radius: 50%;
+}
+
+.close-btn button {
+  color: white;
+}
+
+button,
+.close-btn button {
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.close-btn:hover,
+.reaction-btn:hover {
+  cursor: pointer;
+  border: 0.5px solid white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.reaction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.reaction-btn {
+  background: black;
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-heart,
+.fa-heart-crack {
+  margin: 0 5px;
+  color: red;
+}
+
+.count {
+  margin-right: 5px;
 }
 
 h1 {
@@ -44,7 +135,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -61,7 +152,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -72,6 +163,6 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    color: white;
   }
 }
