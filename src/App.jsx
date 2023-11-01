@@ -8,10 +8,10 @@ function App() {
     <>
       <Header />
       <main>
-        <input type='text' placeholder='Search' />
+        {/* <input type='text' placeholder='Search' />
         <div className="cards">
           <Card />
-        </div>
+        </div> */}
       </main>
       <Footer />
     </>
