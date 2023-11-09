@@ -69,7 +69,6 @@ ul li {
   display: inline-block;
   margin: 10px;
   font-size: 1.5rem;
-  text-transform: uppercase;
 }
 
 ul li a {
@@ -100,7 +99,7 @@ main {
 .search-bar > input {
   font-family: inherit;
   font-size: inherit;
-  border: 0.5px solid black;
+  margin-left: 2px;
   padding: 0.5rem;
   height: 40px;
   flex: 1;
