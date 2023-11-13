@@ -65,17 +65,17 @@ body {
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
 }
 
-ul li {
+.link {
   display: inline-block;
   margin: 10px;
   font-size: 1.5rem;
 }
 
-ul li a {
+.link {
   color: white;
 }
 
-ul li a:hover {
+.link:hover {
   text-decoration: underline;
   color: white;
 }

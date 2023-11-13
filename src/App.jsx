@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Card from "./Card";
 // import Home from './Home';
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [wildlife, setWildlife] = useState([...animals]);

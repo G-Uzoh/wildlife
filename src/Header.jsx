@@ -1,15 +1,18 @@
 import { animals } from "./animalsList";
 import { birds } from "./animalsList";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
         <header>
-            <ul>
-                <li><a href="http://">Home</a></li>
-                <li><a href="http://">Animals ({animals.length})</a></li>
-                <li><a href="http://">Birds ({birds.length})</a></li>
-                <li><a href="http://">About</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <Link to='/' className="link">Home</Link>
+                    <Link to='/animals' className="link">Animals ({animals.length})</Link>
+                    <Link to='/birds' className="link">Birds ({birds.length})</Link>
+                    <Link to='/about' className="link">About</Link>
+                </ul>
+            </nav>
         </header>
     );
 }

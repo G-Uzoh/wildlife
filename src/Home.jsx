@@ -1,9 +1,16 @@
+import Header from "./Header";
+import Footer from "./Footer";
+
 const Home = () => {
     return (
-        <div className="hero">
-            <div className="animal"></div>
-            <div className="bird"></div>
-        </div>
+        <>
+            <Header />
+            <div className="hero">
+                <div className="animal"></div>
+                <div className="bird"></div>
+            </div>
+            <Footer />
+        </>
     );
 }
 
