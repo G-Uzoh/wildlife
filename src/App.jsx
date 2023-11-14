@@ -5,33 +5,39 @@ import Footer from "./Footer";
 import Card from "./Card";
 // import Home from './Home';
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const [wildlife, setWildlife] = useState([...animals]);
+  const [wildlife, setWildlife] = useState(animals);
+  const [search, setSearch] = useState('');
 
-  function deleteItem(name) {
-    const newList = wildlife.filter((wildAminal) => wildAminal.name != name);
+  function handleDelete(name) {
+    const newList = wildlife.filter((wildAminal) => wildAminal.name !== name);
     setWildlife(newList);
   }
 
-  function searchItem(e) {
-    const searchText = e.target.value.toLowerCase();
-    const filteredList = wildlife?.filter((word) =>
-      word.name.toLowerCase().includes(searchText)
-    );
-    setWildlife(filteredList);
+  const handleSearch = e => {
+    setSearch(e.target.value);
   }
 
-  function handleBackspace(e) {
-    if (e.key === "Backspace") {
-      const searchText = e.target.value.toLowerCase().split('').slice(0, -1).join('');
-      const filteredList = animals?.filter((word) =>
-        word.name.toLowerCase().includes(searchText)
-      );
-      setWildlife(filteredList);
-    }
-  }
+  // One way to implement search function
+  // function handleSearch(e) {
+  //   const searchText = e.target.value.toLowerCase();
+  //   const filteredList = wildlife?.filter((word) =>
+  //     word.name.toLowerCase().includes(searchText)
+  //   );
+  //   setWildlife(filteredList);
+  // }
+
+  // Function to handle backspace key event in the search function
+  // function handleBackspace(e) {
+  //   if (e.key === "Backspace") {
+  //     const searchText = e.target.value.toLowerCase().split('').slice(0, -1).join('');
+  //     const filteredList = animals?.filter((word) =>
+  //       word.name.toLowerCase().includes(searchText)
+  //     );
+  //     setWildlife(filteredList);
+  //   }
+  // }
 
   return (
     <>
@@ -41,17 +47,16 @@ function App() {
           <input
             type="text"
             placeholder="Search"
-            onChange={searchItem}
-            onKeyDown={handleBackspace}
+            onChange={handleSearch}
           />
           <span className="material-symbols-outlined"> search </span>
         </div>
         <div className="cards">
-          {wildlife?.map((animal) => (
+          {wildlife?.filter(animal => animal.name.toLowerCase().includes(search.toLowerCase()))?.map((animal) => (
             <Card
               key={animal.name}
               {...animal}
-              onButtonClick={() => deleteItem(animal.name)}
+              onButtonClick={() => handleDelete(animal.name)}
             />
           ))}
         </div>
