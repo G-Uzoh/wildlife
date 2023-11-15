@@ -19,6 +19,21 @@ function App() {
     setSearch(e.target.value);
   }
 
+  const handleLikes = (name, reaction) => {
+    const newArray = wildlife.map((animal) => {
+      if (animal.name === name) {
+        if (reaction === 'add') {
+          return {...animal, likes: animal.likes + 1};
+        } else {
+          return {...animal, likes: animal.likes - 1};
+        }
+      } else {
+        return animal;
+      }
+    });
+    setWildlife(newArray);
+  }
+
   // One way to implement search function
   // function handleSearch(e) {
   //   const searchText = e.target.value.toLowerCase();
@@ -57,6 +72,8 @@ function App() {
               key={animal.name}
               {...animal}
               onButtonClick={() => handleDelete(animal.name)}
+              addLike={() => handleLikes(animal.name, 'add')}
+              removeLike={() => handleLikes(animal.name, 'remove')}
             />
           ))}
         </div>
