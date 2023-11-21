@@ -1,17 +1,17 @@
-// import { Routes, Route, Link } from "react-router-dom";
 import { animals } from "./animalsList";
-import Header from "./Header";
-import Footer from "./Footer";
-import Card from "./Card";
-// import Home from './Home';
+import About from './routes/About';
+import Home from './routes/Home';
+import Root from "./routes/Root";
+import Animals from "./routes/Animals";
 import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
   const [wildlife, setWildlife] = useState(animals);
   const [search, setSearch] = useState('');
 
   function handleDelete(name) {
-    const newList = wildlife.filter((wildAminal) => wildAminal.name !== name);
+    const newList = wildlife.filter((wildAnimal) => wildAnimal.name !== name);
     setWildlife(newList);
   }
 
@@ -54,9 +54,32 @@ function App() {
   //   }
   // }
 
+  const router = createBrowserRouter([
+    { path: '/', element: <Root />, 
+    children: [
+      {
+        path: '/', element: <Home />
+      },
+      {
+        path: '/animals',
+        element: (
+          <Animals 
+            handleSearch={handleSearch}
+            animals={wildlife}
+            search={search}
+            handleDelete={handleDelete}
+            handleLikes={handleLikes}
+          />
+        )
+      },
+      { path: '/about', element: <About /> }
+    ]}
+  ]);
+
   return (
     <>
-      <Header />
+      <RouterProvider router={router} />
+      {/* 
       <main>
         <div className="search-bar">
           <input
@@ -77,12 +100,7 @@ function App() {
             />
           ))}
         </div>
-        {/* <Home />
-        <Routes>
-          <Route path='/' element={<Card />} />
-        </Routes> */}
-      </main>
-      <Footer />
+      {/* </main> */}
     </>
   );
 }
