@@ -1,38 +1,47 @@
-import { animals } from "./animalsList";
-import About from './routes/About';
-import Home from './routes/Home';
+import { animals, birds } from "./animalsList";
+import About from "./routes/About";
+import Home from "./routes/Home";
 import Root from "./routes/Root";
-import Animals from "./routes/Animals";
+import SpeciesCategoryPage from "./routes/SpeciesCategoryPage";
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import SinglePage from "./routes/SinglePage";
+import CategoryPage from "./routes/CategoryPage";
 
 function App() {
-  const [wildlife, setWildlife] = useState(animals);
-  const [search, setSearch] = useState('');
+  const [wildlife, setWildlife] = useState({
+    animals: animals,
+    birds: birds
+  });
+  const [search, setSearch] = useState("");
 
-  function handleDelete(name) {
-    const newList = wildlife.filter((wildAnimal) => wildAnimal.name !== name);
-    setWildlife(newList);
+  function handleDelete(name, species) {
+    const newList = wildlife[species].filter((el) => el.name !== name);
+    setWildlife({...wildlife, [species]: newList});
   }
 
-  const handleSearch = e => {
+  const clearSearchBar = () => {
+    setSearch('');
+  }
+
+  const handleSearch = (e) => {
     setSearch(e.target.value);
-  }
+  };
 
-  const handleLikes = (name, reaction) => {
-    const newArray = wildlife.map((animal) => {
-      if (animal.name === name) {
-        if (reaction === 'add') {
-          return {...animal, likes: animal.likes + 1};
+  const handleLikes = (name, reaction, species) => {
+    const newArray = wildlife[species].map((el) => {
+      if (el.name === name) {
+        if (reaction === "add") {
+          return { ...el, likes: el.likes + 1 };
         } else {
-          return {...animal, likes: animal.likes - 1};
+          return { ...el, likes: el.likes - 1 };
         }
       } else {
-        return animal;
+        return el;
       }
     });
-    setWildlife(newArray);
-  }
+    setWildlife({...wildlife, [species]: newArray});
+  };
 
   // One way to implement search function
   // function handleSearch(e) {
@@ -55,25 +64,31 @@ function App() {
   // }
 
   const router = createBrowserRouter([
-    { path: '/', element: <Root />, 
-    children: [
-      {
-        path: '/', element: <Home />
-      },
-      {
-        path: '/animals',
-        element: (
-          <Animals 
-            handleSearch={handleSearch}
-            animals={wildlife}
-            search={search}
-            handleDelete={handleDelete}
-            handleLikes={handleLikes}
-          />
-        )
-      },
-      { path: '/about', element: <About /> }
-    ]}
+    {
+      path: "/",
+      element: <Root clearSearchBar={clearSearchBar} />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: ":species",
+          element: (
+            <SpeciesCategoryPage
+              handleSearch={handleSearch}
+              animals={wildlife}
+              search={search}
+              handleDelete={handleDelete}
+              handleLikes={handleLikes}
+            />
+          ),
+        },
+        // { path: ":category", element: <CategoryPage {...wildlife} /> },
+        { path: ":category/:name", element: <SinglePage /> },
+        { path: "/about", element: <About /> },
+      ],
+    },
   ]);
 
   return (
