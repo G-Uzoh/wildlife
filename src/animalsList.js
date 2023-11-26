@@ -163,3 +163,14 @@ export const animals = [
     { "name": "Cormorant", "likes": 0 },
     { "name": "Hawk", "likes": 0 }
   ];
+
+// Dynamically add id to list
+// const addId = (species) => {
+//   let array = [];
+//   for (let i = 1; i <= species.length; i++) {
+//     array.push({'id': i, ...species[i]});
+//   }
+//   return array;
+// }
+
+// console.log(addId(birds))

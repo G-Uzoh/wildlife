@@ -27,7 +27,7 @@ const Card = ({ name, likes, onButtonClick, addLike, removeLike }) => {
       <div className="close-btn">
         <button onClick={onButtonClick}>x</button>
       </div>
-      <Link>View more</Link>
+      <Link to={name}>View more</Link>
     </div>
   );
 };

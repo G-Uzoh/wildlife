@@ -6,23 +6,22 @@ import SpeciesCategoryPage from "./routes/SpeciesCategoryPage";
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SinglePage from "./routes/SinglePage";
-import CategoryPage from "./routes/CategoryPage";
 
 function App() {
   const [wildlife, setWildlife] = useState({
     animals: animals,
-    birds: birds
+    birds: birds,
   });
   const [search, setSearch] = useState("");
 
   function handleDelete(name, species) {
     const newList = wildlife[species].filter((el) => el.name !== name);
-    setWildlife({...wildlife, [species]: newList});
+    setWildlife({ ...wildlife, [species]: newList });
   }
 
   const clearSearchBar = () => {
-    setSearch('');
-  }
+    setSearch("");
+  };
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
@@ -40,7 +39,7 @@ function App() {
         return el;
       }
     });
-    setWildlife({...wildlife, [species]: newArray});
+    setWildlife({ ...wildlife, [species]: newArray });
   };
 
   // One way to implement search function
@@ -85,7 +84,10 @@ function App() {
           ),
         },
         // { path: ":category", element: <CategoryPage {...wildlife} /> },
-        { path: ":category/:name", element: <SinglePage /> },
+        {
+          path: ":category/:name",
+          element: <SinglePage />,
+        },
         { path: "/about", element: <About /> },
       ],
     },

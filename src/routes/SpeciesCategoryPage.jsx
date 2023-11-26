@@ -14,18 +14,21 @@ const SpeciesCategoryPage = ({
 
   return (
     <>
-      <div className="search-bar">
-        <input type="text" placeholder="Search" onChange={handleSearch} />
-        <span className="material-symbols-outlined"> search </span>
+      <div className="info">
+        <h2 className="name">{species}</h2>
+        <div className="search-bar">
+          <input type="text" placeholder="Search" onChange={handleSearch} />
+          <span className="material-symbols-outlined"> search </span>
+        </div>
       </div>
       <div className="cards">
         {speciesGroup
           .filter((el) =>
             el.name.toLowerCase().includes(search.toLowerCase())
           )
-          .map((el) => (
+          .map((el, index) => (
             <Card
-              key={el.name}
+              key={index}
               {...el}
               onButtonClick={() => handleDelete(el.name, species)}
               addLike={() => handleLikes(el.name, "add", species)}
