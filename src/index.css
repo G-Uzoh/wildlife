@@ -70,28 +70,28 @@ body {
   margin: 70px auto;
 }
 
-.animal {
+.profile {
   flex: 50%;
-  background-image: url('https://cdn.pixabay.com/photo/2019/07/30/05/53/dog-4372036_1280.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 10px;
+  border: none;
+}
+
+.animal {
+  background-image: url('https://cdn.pixabay.com/photo/2019/07/30/05/53/dog-4372036_1280.jpg');
 }
 
 .bird {
-  flex: 50%;
   background-image: url('https://cdn.pixabay.com/photo/2015/07/28/18/19/eagle-864725_1280.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
 }
 
 .fish {
-  flex: 50%;
   background-image: url('https://cdn.pixabay.com/photo/2018/04/15/17/45/fish-3322230_1280.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
+}
+
+.insect {
+  background-image: url('https://cdn.pixabay.com/photo/2020/04/19/05/33/ants-5061910_1280.jpg');
 }
 
 .animal:hover,

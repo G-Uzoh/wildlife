@@ -4,11 +4,13 @@ const Home = () => {
     return (
         <>
             <div className="hero">
-                <Link className="animal" to="/animals"></Link>
+                <Link className="profile animal" to="/animals"></Link>
 
-                <Link className="bird" to="/birds"></Link>
+                <Link className="profile bird" to="/birds"></Link>
 
-                <Link className="fish" to="/fishes"></Link>
+                <Link className="profile fish" to="/fishes"></Link>
+                
+                <Link className="profile insect" to="/insects"></Link>
             </div>
         </>
     );

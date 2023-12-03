@@ -1,4 +1,4 @@
-import { animals, birds, fishes } from "./animalsList";
+import { animals, birds, fishes, insects } from "./animalsList";
 import About from "./routes/About";
 import Home from "./routes/Home";
 import Root from "./routes/Root";
@@ -12,6 +12,7 @@ function App() {
     animals: animals,
     birds: birds,
     fishes: fishes,
+    insects: insects,
   });
   const [search, setSearch] = useState("");
 

@@ -1,11 +1,11 @@
-import { animals, birds, fishes } from "../animalsList";
+import { animals, birds, fishes, insects } from "../animalsList";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = ({ handleSearchBarClean }) => {
   return (
     <header>
       <Link to="/" onClick={handleSearchBarClean}>
-        <h1 className="logo">Geo-Geo Wild</h1>
+        <h1 className="logo">Wildlife</h1>
       </Link>
       <nav>
         <NavLink to="/" className="link" onClick={handleSearchBarClean}>
@@ -19,6 +19,9 @@ const Header = ({ handleSearchBarClean }) => {
         </NavLink>
         <NavLink to="/fishes" className="link" onClick={handleSearchBarClean}>
           Birds ({fishes.length})
+        </NavLink>
+        <NavLink to="/insects" className="link" onClick={handleSearchBarClean}>
+          Insects ({insects.length})
         </NavLink>
         <NavLink to="/about" className="link" onClick={handleSearchBarClean}>
           About

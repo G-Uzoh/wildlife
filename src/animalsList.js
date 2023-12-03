@@ -193,6 +193,31 @@ export const fishes = [
   // Add more fish as needed
 ];
 
+export const insects = [
+  { name: 'ant', likes: 0 },
+  { name: 'bee', likes: 0 },
+  { name: 'beetle', likes: 0 },
+  { name: 'butterfly', likes: 0 },
+  { name: 'caterpillar', likes: 0 },
+  { name: 'centipede', likes: 0 },
+  { name: 'cockroach', likes: 0 },
+  { name: 'cricket', likes: 0 },
+  { name: 'dragonfly', likes: 0 },
+  { name: 'firefly', likes: 0 },
+  { name: 'flea', likes: 0 },
+  { name: 'fly', likes: 0 },
+  { name: 'grasshopper', likes: 0 },
+  { name: 'ladybug', likes: 0 },
+  { name: 'mosquito', likes: 0 },
+  { name: 'moth', likes: 0 },
+  { name: 'praying-mantis', likes: 0 },
+  { name: 'spider', likes: 0 },
+  { name: 'termite', likes: 0 },
+  { name: 'wasp', likes: 0 },
+  // Add more insects as needed
+];
+
+
 // Dynamically add id to list
 // const addId = (species) => {
 //   let array = [];
