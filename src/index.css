@@ -62,7 +62,9 @@ body {
 }
 
 .hero {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
   width: 800px;
   height: 500px;
   margin: 70px auto;
@@ -73,13 +75,20 @@ body {
   background-image: url('https://cdn.pixabay.com/photo/2019/07/30/05/53/dog-4372036_1280.jpg');
   background-size: cover;
   background-position: center;
-  margin-right: 10px;
   border-radius: 10px;
 }
 
 .bird {
   flex: 50%;
-  background-image: url('https://cdn.pixabay.com/photo/2017/02/07/11/45/eagle-2045655_1280.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2015/07/28/18/19/eagle-864725_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.fish {
+  flex: 50%;
+  background-image: url('https://cdn.pixabay.com/photo/2018/04/15/17/45/fish-3322230_1280.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 10px;

@@ -7,6 +7,8 @@ const Home = () => {
                 <Link className="animal" to="/animals"></Link>
 
                 <Link className="bird" to="/birds"></Link>
+
+                <Link className="fish" to="/fishes"></Link>
             </div>
         </>
     );
