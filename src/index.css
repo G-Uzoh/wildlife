@@ -44,8 +44,8 @@ header {
 
 .info {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-between;
 }
 
 .name {
@@ -57,7 +57,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   color: white;
-  background: #333
+  background: #333;
+  padding: 0 20px;
 }
 
 .hero {
@@ -108,7 +109,11 @@ a.active {
 }
 
 main {
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 250px);
+}
+
+footer {
+  margin-top: 50px;
 }
 
 .search-bar {
@@ -142,7 +147,7 @@ main {
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 20px;
 }
 
 .card {
@@ -150,10 +155,12 @@ main {
   border: 0.5px solid black;
   border-radius: 10px;
   position: relative;
-  width: 300px;
-  padding: 8px;
-  margin: 50px 20px;
   filter: grayscale(90%);
+  margin-top: 50px;
+}
+
+.single {
+  width: 300px;
 }
 
 .card:hover {
@@ -163,20 +170,39 @@ main {
 .card img {
   width: 100%;
   border: 0.5px solid white;
-  border-radius: 10px;
+  border-radius: 5px 5px 0 0;
 }
 
 .title {
   font-size: 1.2rem;
   margin: 10px auto;
+  text-transform: capitalize;
+}
+
+.card .likes {
+  margin: 5px auto;
+}
+
+.card-link {
+  color: white;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: white;
+}
+
+.back-btn {
+  margin: 5px auto;
+  font-size: 1.05rem;
 }
 
 .close-btn {
   position: absolute;
-  top: -25px;
-  right: 1px;
-  width: 20px;
-  height: 20px;
+  top: 2px;
+  right: 2px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,8 +210,13 @@ main {
   border-radius: 50%;
 }
 
+.close-btn:hover {
+  border: 0.5px solid white;
+}
+
 .close-btn button {
   color: white;
+  font-size: 1.125rem;
 }
 
 button,
@@ -207,13 +238,14 @@ button:hover {
 
 .reaction {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
+  padding: 0 25px;
 }
 
 .reaction-btn {
-  background: black;
+  background: #333;
   width: 50px;
   height: 30px;
   border-radius: 10px;
@@ -224,12 +256,15 @@ button:hover {
 
 .fa-heart,
 .fa-heart-crack {
-  margin: 0 5px;
-  color: red;
+  color: #980c0c;
+}
+
+.rating {
+  font-size: 1.25rem;
 }
 
 .count {
-  margin-right: 5px;
+  margin-left: 10px;
 }
 
 h1 {

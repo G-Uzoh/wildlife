@@ -42,26 +42,6 @@ function App() {
     setWildlife({ ...wildlife, [species]: newArray });
   };
 
-  // One way to implement search function
-  // function handleSearch(e) {
-  //   const searchText = e.target.value.toLowerCase();
-  //   const filteredList = wildlife?.filter((word) =>
-  //     word.name.toLowerCase().includes(searchText)
-  //   );
-  //   setWildlife(filteredList);
-  // }
-
-  // Function to handle backspace key event in the search function
-  // function handleBackspace(e) {
-  //   if (e.key === "Backspace") {
-  //     const searchText = e.target.value.toLowerCase().split('').slice(0, -1).join('');
-  //     const filteredList = animals?.filter((word) =>
-  //       word.name.toLowerCase().includes(searchText)
-  //     );
-  //     setWildlife(filteredList);
-  //   }
-  // }
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -85,8 +65,10 @@ function App() {
         },
         // { path: ":category", element: <CategoryPage {...wildlife} /> },
         {
-          path: ":category/:name",
-          element: <SinglePage />,
+          path: ":species/:name",
+          element: (
+            <SinglePage {...wildlife} />
+          ),
         },
         { path: "/about", element: <About /> },
       ],
@@ -96,28 +78,6 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-      {/* 
-      <main>
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search"
-            onChange={handleSearch}
-          />
-          <span className="material-symbols-outlined"> search </span>
-        </div>
-        <div className="cards">
-          {wildlife?.filter(animal => animal.name.toLowerCase().includes(search.toLowerCase()))?.map((animal) => (
-            <Card
-              key={animal.name}
-              {...animal}
-              onButtonClick={() => handleDelete(animal.name)}
-              addLike={() => handleLikes(animal.name, 'add')}
-              removeLike={() => handleLikes(animal.name, 'remove')}
-            />
-          ))}
-        </div>
-      {/* </main> */}
     </>
   );
 }

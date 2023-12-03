@@ -1,45 +1,21 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import Card from "../components/Card";
-import { animals, birds } from '../animalsList';
+import { useNavigate, useParams } from "react-router-dom";
 
-const SinglePage = () => {
-  const [wildlife, setWildlife] = useState({
-    animals: animals,
-    birds: birds,
-  });
-  const [ likes, setLikes ] = useState(0);
-  const { name, category } = useParams();
-  
-  const handleLikes = (name, reaction, category) => {
-    const newArray = wildlife[category].map((el) => {
-      if (el.name === name) {
-        if (reaction === "add") {
-          setLikes(el.likes + 1);
-          return { ...el, likes: el.likes + 1 };
-        } else {
-          setLikes(el.likes - 1);
-          return { ...el, likes: el.likes - 1 };
-        }
-      } else {
-        return el;
-      }
-    });
-    setWildlife({ ...wildlife, [category]: newArray });
-  };
-  // const speciesName = params.name // name in params.name corresponds to the dynamic segment specified in the route config (':category/:name'). The destructured format would be const { name } = useParams();
-  return (
-    <>
-      <h2>Details about {name}</h2>
-      <Card 
-        key={name}
-        name={name}
-        likes={likes}
-        addLike={() => handleLikes(name, 'add', category)}
-        removeLike={() => handleLikes(name, 'remove', category)}
-      />
-    </>
-  );
-};
+const SinglePage = (props) => {
+    let urlParams = useParams();
+    const navigate = useNavigate();
+    const array = props[urlParams.species];
+    
+    const data = array.find(el => el.name === urlParams.name);
+    
+    return (
+        <div className="card single">
+            <img src={`https://source.unsplash.com/400x400/?${data.name}`} alt={`${data.name}`} />
+            <h2 className="title">{data.name}</h2>
+            <p className="likes">Likes: {data.likes}</p>
+            <button className="back-btn" onClick={() => navigate(-1)}>Back</button>
+        </div>
+
+    );
+}
 
 export default SinglePage;

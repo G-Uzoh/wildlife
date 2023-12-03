@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Card = ({ name, likes, onButtonClick, addLike, removeLike }) => {
+
+  const navigate = useNavigate();
+  const { species } = useParams();
+  console.log(species);
 
   return (
     <div className="card">
@@ -25,10 +29,20 @@ const Card = ({ name, likes, onButtonClick, addLike, removeLike }) => {
           <button>+</button>
         </div>
       </div>
-      <div onClick={onButtonClick} className="close-btn">
-        <button>x</button>
+      <div className="close-btn">
+        <button onClick={onButtonClick}>x</button>
       </div>
-      <Link to={name} className="card-link">View more</Link>
+      {species !== undefined ? (
+        <button
+          onClick={() => {
+            navigate(`/category/${name}`);
+          }}
+        >
+          View more
+        </button>
+      ) : (
+        <button onClick={() => navigate(-1)}>Back</button>
+      )}
     </div>
   );
 };

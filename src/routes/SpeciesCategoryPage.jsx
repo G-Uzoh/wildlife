@@ -23,7 +23,7 @@ const SpeciesCategoryPage = ({
       </div>
       <div className="cards">
         {speciesGroup
-          .filter((el) =>
+          ?.filter((el) =>
             el.name.toLowerCase().includes(search.toLowerCase())
           )
           .map((el, index) => (
