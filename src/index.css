@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -14,21 +16,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
+/* CSS reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Header styles */
 header {
   display: flex;
   justify-content: space-between;
@@ -37,19 +32,64 @@ header {
 }
 
 .logo {
+  font-family: 'Beau Rivage', cursive;
   font-size: 2.5rem;
   font-weight: 500;
   color: white;
+  margin-top: 10px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+.link {
+  display: inline-block;
+  margin: 10px;
+  font-size: 1.125rem;
+  color: white;
+}
+
+.link:hover {
+  color: white;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a.active {
+  color: yellowgreen;
+}
+
+/* Main content styles */
+main {
+  min-height: calc(100vh - 150px);
 }
 
 .info {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 30px;
+}
+
+input {
+  background: none;
+  color: white;
+  width: 200px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1.5px solid #e6e6e6f0;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 .name {
   text-transform: capitalize;
+  font-size: 20px;
 }
 
 body {
@@ -65,13 +105,11 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  width: 800px;
   height: 500px;
   margin: 70px auto;
 }
 
 .profile {
-  flex: 50%;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -94,91 +132,39 @@ body {
   background-image: url('https://cdn.pixabay.com/photo/2020/04/19/05/33/ants-5061910_1280.jpg');
 }
 
-.animal:hover,
-.bird:hover {
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
-}
-
-a.active {
-  color: yellowgreen;
-  border-bottom: 1px solid yellowgreen;
-}
-
-.link {
-  display: inline-block;
-  margin: 10px;
-  font-size: 1.5rem;
-  color: white;
-}
-
-.link:hover {
-  text-decoration: underline;
-  color: white;
-}
-
-main {
-  min-height: calc(100vh - 250px);
-}
-
 footer {
   margin-top: 50px;
 }
 
-.search-bar {
-  width: 20rem;
-  height: 45px;
-  margin: 2rem auto;
-  background: white;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.search-bar > input {
-  font-family: inherit;
-  font-size: inherit;
-  margin-left: 2px;
-  padding: 0.5rem;
-  height: 40px;
-  flex: 1;
-  border: none;
-  outline: none;
-}
-
-.search-bar > span {
-  font-size: 1.5rem;
-  color: #333;
-}
-
+/* Card styles */
 .cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 30px;
 }
 
 .card {
   background: lightsteelblue;
   border: 0.5px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   position: relative;
-  filter: grayscale(90%);
-  margin-top: 50px;
 }
 
 .single {
   width: 300px;
 }
 
-.card:hover {
-  filter: grayscale(0%);
+.singlecard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 150px);
 }
 
 .card img {
   width: 100%;
-  border: 0.5px solid white;
+  border: none;
   border-radius: 5px 5px 0 0;
 }
 
@@ -201,6 +187,7 @@ footer {
   color: white;
 }
 
+/* Button styles */
 .back-btn {
   margin: 5px auto;
   font-size: 1.05rem;
@@ -255,7 +242,7 @@ button:hover {
 
 .reaction-btn {
   background: #333;
-  width: 50px;
+  width: 35px;
   height: 30px;
   border-radius: 10px;
   display: flex;
@@ -268,17 +255,24 @@ button:hover {
   color: #980c0c;
 }
 
-.rating {
-  font-size: 1.25rem;
-}
-
 .count {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.scroll-to-top > button {
+  position: fixed;
+  bottom: 10px;
+  right: 5px;
+  font-size: 1.8rem;
+  color: white;
+}
+
+/* About page */
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (prefers-color-scheme: light) {
@@ -291,5 +285,61 @@ h1 {
   }
   button {
     color: white;
+  }
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .hero {
+    gap: 10px;
+    width: 1000px;
+    height: 550px;
+    margin: 70px auto;
+  }
+  
+  .profile {
+    flex: 50%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    border: none;
+  }
+
+  input {
+    width: 250px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    border: 0.5px solid black;
+    border-radius: 10px;
+    position: relative;
+    filter: grayscale(90%);
+    margin-top: 50px;
+  }
+  
+  .card:hover {
+    filter: grayscale(0%);
+  }
+
+  .card img {
+    border: 0.5px solid white;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .rating {
+    font-size: 1.25rem;
+  }
+  
+  .count {
+    margin-left: 10px;
+  }
+
+  .scroll-to-top > button {
+    font-size: 2rem;
   }
 }

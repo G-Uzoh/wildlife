@@ -7,6 +7,8 @@ const SpeciesCategoryPage = ({
   search,
   handleDelete,
   handleLikes,
+  showScrollBtn,
+  handleScrollToTop,
 }) => {
 
   const { species } = useParams();
@@ -16,17 +18,14 @@ const SpeciesCategoryPage = ({
     <>
       <div className="info">
         <h2 className="name">{species}</h2>
-        <div className="search-bar">
-          <input type="text" placeholder="Search" onChange={handleSearch} />
-          <span className="material-symbols-outlined"> search </span>
-        </div>
+        <input type="text" placeholder="Search" onChange={handleSearch} />
       </div>
       <div className="cards">
         {speciesGroup
           ?.filter((el) =>
             el.name.toLowerCase().includes(search.toLowerCase())
           )
-          .map((el, index) => (
+          ?.map((el, index) => (
             <Card
               key={index}
               {...el}
@@ -36,6 +35,13 @@ const SpeciesCategoryPage = ({
             />
           ))}
       </div>
+      {showScrollBtn && (
+        <div className="scroll-to-top">
+          <button onClick={handleScrollToTop}>
+            <i className="fa-regular fa-circle-up"></i>
+          </button>
+        </div>
+      )}
     </>
   );
 };

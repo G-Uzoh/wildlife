@@ -3,7 +3,7 @@ import About from "./routes/About";
 import Home from "./routes/Home";
 import Root from "./routes/Root";
 import SpeciesCategoryPage from "./routes/SpeciesCategoryPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SinglePage from "./routes/SinglePage";
 
@@ -15,6 +15,21 @@ function App() {
     insects: insects,
   });
   const [search, setSearch] = useState("");
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
+
+  useEffect(() => {
+    const handleScrollBtnVisibility = () => {
+      window.scrollY > 300 ? setShowScrollBtn(true) : setShowScrollBtn(false);
+    }
+
+    window.addEventListener('scroll', handleScrollBtnVisibility);
+
+    return () => {window.removeEventListener('scroll', handleScrollBtnVisibility);}
+  }, []);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({top: 0, behavior: "smooth"});
+  }
 
   function handleDelete(name, species) {
     const newList = wildlife[species].filter((el) => el.name !== name);
@@ -62,10 +77,11 @@ function App() {
               search={search}
               handleDelete={handleDelete}
               handleLikes={handleLikes}
+              showScrollBtn={showScrollBtn}
+              handleScrollToTop={handleScrollToTop}
             />
           ),
         },
-        // { path: ":category", element: <CategoryPage {...wildlife} /> },
         {
           path: ":species/:name",
           element: (

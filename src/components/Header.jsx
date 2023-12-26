@@ -18,7 +18,7 @@ const Header = ({ handleSearchBarClean }) => {
           Birds ({birds.length})
         </NavLink>
         <NavLink to="/fishes" className="link" onClick={handleSearchBarClean}>
-          Birds ({fishes.length})
+          Fishes ({fishes.length})
         </NavLink>
         <NavLink to="/insects" className="link" onClick={handleSearchBarClean}>
           Insects ({insects.length})
