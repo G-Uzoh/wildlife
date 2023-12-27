@@ -16,19 +16,26 @@ function App() {
   });
   const [search, setSearch] = useState("");
   const [showScrollBtn, setShowScrollBtn] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScrollBtnVisibility = () => {
       window.scrollY > 300 ? setShowScrollBtn(true) : setShowScrollBtn(false);
-    }
+    };
 
-    window.addEventListener('scroll', handleScrollBtnVisibility);
+    window.addEventListener("scroll", handleScrollBtnVisibility);
 
-    return () => {window.removeEventListener('scroll', handleScrollBtnVisibility);}
+    return () => {
+      window.removeEventListener("scroll", handleScrollBtnVisibility);
+    };
   }, []);
 
   const handleScrollToTop = () => {
-    window.scrollTo({top: 0, behavior: "smooth"});
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleMenuToggle = () => {
+    setIsOpen((open) => !open);
   }
 
   function handleDelete(name, species) {
@@ -62,7 +69,13 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root clearSearchBar={clearSearchBar} />,
+      element: (
+        <Root
+          isOpen={isOpen}
+          handleMenuToggle={handleMenuToggle}
+          clearSearchBar={clearSearchBar}
+        />
+      ),
       children: [
         {
           path: "/",
@@ -84,9 +97,7 @@ function App() {
         },
         {
           path: ":species/:name",
-          element: (
-            <SinglePage {...wildlife} />
-          ),
+          element: <SinglePage {...wildlife} />,
         },
         { path: "/about", element: <About /> },
       ],

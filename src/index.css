@@ -16,6 +16,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  text-align: center;
+  min-width: 320px;
+  min-height: 100vh;
+  color: white;
+  background: #333;
+  padding: 0 20px;
+}
+
 /* CSS reset */
 * {
   margin: 0;
@@ -43,10 +52,27 @@ nav {
   margin-top: 10px;
 }
 
+.menu {
+  display: none;
+}
+
+.menu.is-open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 1;
+  background: dimgray;
+  width: 100vw;
+  border-top: 1px solid #eee;
+}
+
 .link {
   display: inline-block;
   margin: 10px;
-  font-size: 1.125rem;
   color: white;
 }
 
@@ -92,20 +118,11 @@ input {
   font-size: 20px;
 }
 
-body {
-  text-align: center;
-  min-width: 320px;
-  min-height: 100vh;
-  color: white;
-  background: #333;
-  padding: 0 20px;
-}
-
 .hero {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  height: 500px;
+  gap: 5px;
+  height: 380px;
   margin: 70px auto;
 }
 
@@ -294,7 +311,6 @@ button:hover {
     gap: 10px;
     width: 1000px;
     height: 550px;
-    margin: 70px auto;
   }
   
   .profile {
@@ -303,6 +319,29 @@ button:hover {
     background-position: center;
     border-radius: 10px;
     border: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .link {
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.125rem;
+    color: white;
+  }
+  
+  .link:hover {
+    color: white;
+  }
+
+  .info {
+    margin-top: 40px;
   }
 
   input {
@@ -319,7 +358,7 @@ button:hover {
     border-radius: 10px;
     position: relative;
     filter: grayscale(90%);
-    margin-top: 50px;
+    margin-top: 30px;
   }
   
   .card:hover {
