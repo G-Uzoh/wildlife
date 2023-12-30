@@ -294,6 +294,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 300px;
 }
 
 .about h2,
@@ -318,7 +319,7 @@ button:hover {
 @media (min-width: 768px) {
   .hero {
     gap: 10px;
-    width: 1000px;
+    max-width: 1000px;
     height: 550px;
   }
   
@@ -398,6 +399,10 @@ button:hover {
 
   .scroll-to-top > button {
     font-size: 2rem;
+  }
+
+  .about {
+    margin-bottom: 450px;
   }
 
   .about h2 {
