@@ -70,6 +70,10 @@ nav {
   border-top: 1px solid #eee;
 }
 
+.mobile-menu {
+  font-size: 1.5rem;
+}
+
 .link {
   display: inline-block;
   margin: 10px;
@@ -292,6 +296,11 @@ button:hover {
   align-items: center;
 }
 
+.about h2,
+.about p {
+  margin: 10px 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -327,6 +336,15 @@ button:hover {
 
   .mobile-menu {
     display: none;
+  }
+
+  .menu.is-open {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    width: initial;
+    border-top: none;
   }
 
   .link {
@@ -380,5 +398,14 @@ button:hover {
 
   .scroll-to-top > button {
     font-size: 2rem;
+  }
+
+  .about h2 {
+    margin-top: 40px;
+  }
+
+  .about p {
+    margin-top: 30px;
+    width: 800px;
   }
 }
